@@ -1,0 +1,24 @@
+server:
+  host: 0.0.0.0
+  port: 8000
+
+ldap:
+  ro:
+    username: cn=admin,dc=example,dc=org
+    password: admin
+  url: ldap://localhost:1389
+  baseDN: dc=example,dc=org
+  usersObjectClassSearch: inetOrgPerson
+  userAttributes:
+    # uid:
+    objectClass: required
+    givenName:
+    sn: required
+    cn:
+    displayName:
+    mail:
+  groupsObjectClassSearch: groupOfNames
+  groupAttributes:
+    cn: required
+    member: required
+    objectClass: required

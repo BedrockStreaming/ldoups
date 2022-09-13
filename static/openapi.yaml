@@ -1,0 +1,85 @@
+openapi: 3.0.0
+info:
+  title: LDOups
+  version: 1.0.0
+  description: ''
+  license:
+    name: Apache 2.0
+    url: https://www.apache.org/licenses/LICENSE-2.0
+servers:
+  - url: http://172.17.0.1:8000/api
+    description: ''
+paths:
+  /users:
+    get:
+      tags:
+        - User
+      summary: Get users
+      description: ''
+      deprecated: false
+      responses:
+        '200':
+          description: User collection
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  type: object
+                  properties:
+                    id:
+                      type: string
+                    dn:
+                      type: string
+                    attributes:
+                      type: object
+                      properties:
+                        cn:
+                          type: string
+                        displayName:
+                          type: string
+                        sn:
+                          type: string
+                        objectClass:
+                          type: string
+                        mail:
+                          type: string
+                        givenName:
+                          type: string
+  /groups:
+    get:
+      tags:
+        - User
+      summary: Get groups
+      description: ''
+      parameters: []
+      responses:
+        '200':
+          description: Group collection
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  type: object
+                  properties:
+                    id:
+                      type: string
+                    dn:
+                      type: string
+                    attributes:
+                      type: object
+                      properties:
+                        cn:
+                          type: string
+                        member:
+                          type: string
+                        objectClass:
+                          type: string
+components:
+  securitySchemes:
+    BasicAuth:
+      type: http
+      scheme: basic
+security:
+  - BasicAuth: []
