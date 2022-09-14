@@ -2,7 +2,7 @@
 
 Oups, we made another Rest API for LDAP.
 
-We use [ToolJet](https://github.com/ToolJet/ToolJet) as Front.
+We use [Appsmith](https://github.com/appsmithorg/appsmith) as Front.
 
 ## Configuration
 
@@ -22,7 +22,7 @@ Parameter | Description
 - [x] CRUD User/Group
 - [x] Easy Login (use CN instead of DN)
 - [x] OpenAPI Static (`/openapi.yaml`)
-- [x] Front example with [ToolJet](https://github.com/ToolJet/ToolJet) (`front.json`)
+- [x] Front example with [Appsmith](https://github.com/appsmithorg/appsmith)
 - [ ] Dynamic OpenAPI Generation (depending on `ldap.userAttributes` and `ldap.groupAttributes`)
 - [ ] Use ZeroLog
 - [ ] Generate GoDoc
@@ -53,19 +53,17 @@ go run .
 
 Run `test.sh` to create users/groups in ldap from API.
 
-5. Run ToolJet as Front
+5. Launch Appsmith
 
-```
-docker run --name tooljet --user root --restart unless-stopped -p 3000:3000 -v tooljet_data:/var/lib/postgresql/13/main tooljet/try:latest
-```
+Follow [this guide](https://docs.appsmith.com/getting-started/setup/installation-guides/docker)
 
-6. Import front in ToolJet
+6. Import in Appsmith
 
-`front.json`
+[Import settings](front.json)
 
-7. Adapt OpenAPI datasource in ToolJet
+7. Adapt LDOups API datasource in Appsmith
 
-In ToolJet datasources, adapt OpenAPI to use the correct LDOups API host:port
+In Appsmith, adapt datasource to use the correct LDOups API host:port
 
 ## Build
 
